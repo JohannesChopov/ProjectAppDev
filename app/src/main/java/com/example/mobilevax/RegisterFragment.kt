@@ -1,12 +1,18 @@
 package com.example.mobilevax
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mobilevax.databinding.FragmentRegisterBinding
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class RegisterFragment: Fragment(R.layout.fragment_register) {
     private lateinit var binding: FragmentRegisterBinding
@@ -18,18 +24,43 @@ class RegisterFragment: Fragment(R.layout.fragment_register) {
     ): View? {
         binding = FragmentRegisterBinding.inflate(layoutInflater)
         binding.btnGoToLogin.setOnClickListener {
-            // adding an object to a bundle only works with serialization plugins!
-            // see the intents parts of the course.
-            //val bundle = bundleOf("mydata" to data)
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
-        // use the "elvis operator": if left-hand side is null, provide right-hand side.
-        // since arguments is nullable ("?"), always make sure to provide an alternative.
-        /*
-        data = (arguments?.getSerializable("mydata") as MySharedData?) ?: MySharedData()
-
-        binding.txtFragmentSecond.text = "Fragment 2, model: ${data.age}"
-         */
+        binding.btnRegister.setOnClickListener (this::makeAccount)
         return binding.root
+    }
+
+    private fun makeAccount(view: View) {
+        when {
+            binding.edRegisterEmail.text.toString().isEmpty() -> {
+                msg("Please enter Email", view)
+            }
+            binding.edRegisterPassword.text.toString().isEmpty() -> {
+                msg("Please enter a Password", view)
+            }
+            else -> {
+                val email:String = binding.edRegisterEmail.text.toString().trim { it <= ' '}
+                val password:String = binding.edRegisterPassword.text.toString().trim { it <= ' '}
+
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password).addOnCompleteListener(
+                    OnCompleteListener<AuthResult> {
+                        task -> if (task.isSuccessful) {
+                            val firebaseUser: FirebaseUser = task.result!!.user!!
+                            msg("Account created", view)
+                            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                        }
+                        else {
+                            msg("Something went wrong", view)
+                        }
+                    }
+                )
+            }
+        }
+    }
+
+    private fun msg(text: String, view: View) {
+        Snackbar.make(view, text, Snackbar.LENGTH_LONG)
+            .setAction("Action", null).show()
+
     }
 }

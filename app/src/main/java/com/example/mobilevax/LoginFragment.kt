@@ -9,7 +9,11 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mobilevax.databinding.FragmentLoginBinding
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
     private lateinit var binding: FragmentLoginBinding
@@ -25,7 +29,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.btnGoToRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
-        binding.btnLogin.setOnClickListener(this::login)
+        binding.btnLogin.setOnClickListener(this::loginAccount)
         // remember to do this instead of super.onCreateView()
         // otherwise nothing will happen.
         return binding.root
@@ -43,13 +47,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         println("Fragment: onCreate")
     }
 
-
     private fun login(view: View) {
-        if(binding.txtLoginName.text.toString().isEmpty()) {
+        if(binding.edLoginEmail.text.toString().isEmpty()) {
             msg("Your username is empty!", view)
             return
         }
-        if(!binding.txtPassword.text.contentEquals("test")) {
+        if(!binding.edLoginPassword.text.contentEquals("test")) {
             msg("Invalid password!", view)
             return
         }
@@ -66,5 +69,34 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         Snackbar.make(view, text, Snackbar.LENGTH_LONG)
             .setAction("Action", null).show()
 
+    }
+
+    private fun loginAccount(view: View) {
+        when {
+            binding.edLoginEmail.text.toString().isEmpty() -> {
+                msg("Please enter Email", view)
+            }
+            binding.edLoginPassword.text.toString().isEmpty() -> {
+                msg("Please enter a Password", view)
+            }
+            else -> {
+                val email:String = binding.edLoginEmail.text.toString().trim { it <= ' '}
+                val password:String = binding.edLoginPassword.text.toString().trim { it <= ' '}
+
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(
+                    OnCompleteListener<AuthResult> { task ->
+                        if (task.isSuccessful) {
+                            val firebaseUser: FirebaseUser = task.result!!.user!!
+                            msg("Logging in", view)
+                            val intent = Intent(activity,HomeActivity::class.java)
+                            startActivity(intent)
+                        }
+                        else {
+                            msg("Email or password are wrong", view)
+                        }
+                    }
+                )
+            }
+        }
     }
 }

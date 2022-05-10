@@ -10,7 +10,8 @@
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_login.xml" value="0.25905797101449274" />
-        <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_test.xml" value="0.1" />
+        <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_register.xml" value="0.264" />
+        <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_test.xml" value="0.264" />
       </map>
     </option>
   </component>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "333882582193",
+    "project_id": "mobilevax-7e503",
+    "storage_bucket": "mobilevax-7e503.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333882582193:android:2482dcef4a540bd2a7ee90",
+        "android_client_info": {
+          "package_name": "com.example.mobilevax"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333882582193-c9967trl4t29575uvp32ieq4i6de9g0s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobilevax",
+            "certificate_hash": "b13d9679456dcd5335bcc996acc281d56da50ddf"
+          }
+        },
+        {
+          "client_id": "333882582193-b8pjrel7b5adt994n9rc9ck8qpjv4npm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO5uj3P8Kp6rLSD9n91G-GGXiLN4CnAOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333882582193-b8pjrel7b5adt994n9rc9ck8qpjv4npm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
