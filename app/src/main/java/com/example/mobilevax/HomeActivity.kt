@@ -16,11 +16,12 @@ class HomeActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        /*
         val user: User = intent.getSerializableExtra("user") as User
         //binding.txtWelcome.text = "Welcome, ${user.name}"
+         */
         println("WelcomeActivity--onCreate")
     }
-
     override fun onStart() {
         super.onStart()
         println("WelcomeActivity--onStart")

@@ -25,6 +25,33 @@ class MainActivity : AppCompatActivity() {
 
         println("MainActivity--onCreate")
     }
+
+    override fun onStart() {
+        super.onStart()
+        println("MainActivity--onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        println("MainActivity--onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        println("MainActivity--onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("MainActivity--onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("MainActivity--onDestroy")
+    }
+
+
     /*
     override fun onSaveInstanceState(outState: Bundle) {
         println("MainActivity--OnSaveInstanceState (1arg)")
@@ -58,32 +85,6 @@ class MainActivity : AppCompatActivity() {
         }
         super.onRestoreInstanceState(savedInstanceState)
     }
-
-    override fun onStart() {
-        super.onStart()
-        println("MainActivity--onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        println("MainActivity--onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        println("MainActivity--onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        println("MainActivity--onStop")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        println("MainActivity--onDestroy")
-    }
-
     private fun login(view: View) {
         if(binding.txtLoginName.text.toString().isEmpty()) {
             msg("Your username is empty!", view)
