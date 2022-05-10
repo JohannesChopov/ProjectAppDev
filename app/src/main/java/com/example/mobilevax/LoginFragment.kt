@@ -86,20 +86,24 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 val password:String = binding.edLoginPassword.text.toString().trim { it <= ' '}
                 FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email).addOnCompleteListener(
                     OnCompleteListener { task ->
-                        
-                    }
-                )
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(
-                    OnCompleteListener<AuthResult> { task ->
                         if (task.isSuccessful) {
-                            val firebaseUser: FirebaseUser = task.result!!.user!!
-                            msg("Logging in", view)
-                            val intent = Intent(activity,HomeActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            startActivity(intent)
+                            FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(
+                                OnCompleteListener<AuthResult> { task ->
+                                    if (task.isSuccessful) {
+                                        val firebaseUser: FirebaseUser = task.result!!.user!!
+                                        msg("Logging in", view)
+                                        val intent = Intent(activity,HomeActivity::class.java)
+                                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                        startActivity(intent)
+                                    }
+                                    else {
+                                        msg("Email or password is incorrect. Try with another email or password", view)
+                                    }
+                                }
+                            )
                         }
                         else {
-                            msg("Email or password is incorrect. Try with another email or password", view)
+                            msg("Email is not registered. First register your email",view)
                         }
                     }
                 )

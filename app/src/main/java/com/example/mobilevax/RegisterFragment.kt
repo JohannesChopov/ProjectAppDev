@@ -51,7 +51,7 @@ class RegisterFragment: Fragment(R.layout.fragment_register) {
                             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                         }
                         else {
-                            msg("Something went wrong", view)
+                            msg("Password of email is incorrect", view)
                         }
                     }
                 )
