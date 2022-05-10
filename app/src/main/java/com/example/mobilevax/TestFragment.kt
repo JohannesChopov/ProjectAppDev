@@ -32,6 +32,10 @@ class TestFragment: Fragment(R.layout.fragment_register) {
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(activity, MainActivity::class.java))
         }
+        binding.btnDeleteAccount.setOnClickListener {
+            FirebaseAuth.getInstance().currentUser!!.delete()
+            startActivity(Intent(activity, MainActivity::class.java))
+        }
         return binding.root
     }
 }

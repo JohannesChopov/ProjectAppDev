@@ -32,11 +32,12 @@ class RegisterFragment: Fragment(R.layout.fragment_register) {
 
     private fun makeAccount(view: View) {
         when {
-            binding.edRegisterEmail.text.toString().isEmpty() -> {
-                msg("Please enter Email", view)
+            //Als er enkel spaties worden ingevoerd crasht de app
+            TextUtils.isEmpty(binding.edRegisterEmail.text.toString().trim { it <= ' '}) -> {
+                msg("Please enter an email address", view)
             }
-            binding.edRegisterPassword.text.toString().isEmpty() -> {
-                msg("Please enter a Password", view)
+            TextUtils.isEmpty(binding.edRegisterPassword.text.toString().trim { it <= ' '}) -> {
+                msg("Please enter a password", view)
             }
             else -> {
                 val email:String = binding.edRegisterEmail.text.toString().trim { it <= ' '}

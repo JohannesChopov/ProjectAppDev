@@ -2,6 +2,7 @@ package com.example.mobilevax
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -73,26 +74,32 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun loginAccount(view: View) {
         when {
-            binding.edLoginEmail.text.toString().isEmpty() -> {
-                msg("Please enter Email", view)
+            //Als er enkel spaties worden ingevoerd crasht de app
+            TextUtils.isEmpty(binding.edLoginEmail.text.toString().trim { it <= ' '}) -> {
+                msg("Please enter an email", view)
             }
-            binding.edLoginPassword.text.toString().isEmpty() -> {
-                msg("Please enter a Password", view)
+            TextUtils.isEmpty(binding.edLoginPassword.text.toString().trim { it <= ' '}) -> {
+                msg("Please enter a password", view)
             }
             else -> {
                 val email:String = binding.edLoginEmail.text.toString().trim { it <= ' '}
                 val password:String = binding.edLoginPassword.text.toString().trim { it <= ' '}
-
+                FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email).addOnCompleteListener(
+                    OnCompleteListener { task ->
+                        
+                    }
+                )
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(
                     OnCompleteListener<AuthResult> { task ->
                         if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
                             msg("Logging in", view)
                             val intent = Intent(activity,HomeActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                         }
                         else {
-                            msg("Email or password are wrong", view)
+                            msg("Email or password is incorrect. Try with another email or password", view)
                         }
                     }
                 )
