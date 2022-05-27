@@ -53,7 +53,7 @@ class HomeActivity : AppCompatActivity(){
         // since these are all events that influence the fragment list, delegate their actions!
         binding.navView.setNavigationItemSelectedListener {
 
-            //it.isChecked = true
+            it.isChecked = true
 
             when (it.itemId) {
                 R.id.goToLogout -> swapFragment(TestFragment())
@@ -69,7 +69,7 @@ class HomeActivity : AppCompatActivity(){
         fragmentTransaction.replace(R.id.frameLayout,fragment)
         fragmentTransaction.commit()
 
-        //drawerLayout.closeDrawers()
+        binding.drawerLayout.closeDrawers()
     }
 
     private fun goToLogoutFrag() {
