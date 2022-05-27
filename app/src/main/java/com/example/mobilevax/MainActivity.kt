@@ -7,6 +7,7 @@ import com.example.mobilevax.databinding.ActivityMainBinding
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.navigation.fragment.NavHostFragment
 import com.example.mobilevax.model.User
 import com.google.android.material.snackbar.Snackbar
@@ -14,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
+    private lateinit var menuBarToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

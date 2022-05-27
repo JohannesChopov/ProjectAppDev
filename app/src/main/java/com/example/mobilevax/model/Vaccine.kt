@@ -1,4 +1,4 @@
 package com.example.mobilevax.model
 
-class Vaccine {
+data class Vaccine(val name:String) {
 }
