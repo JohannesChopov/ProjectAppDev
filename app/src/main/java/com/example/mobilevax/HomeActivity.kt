@@ -23,7 +23,6 @@ class HomeActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.fragment_vaccinelist)
         binding = ActivityHomeBinding.inflate(layoutInflater)
 
         setupVaccineListFragment()
@@ -66,24 +65,17 @@ class HomeActivity : AppCompatActivity(){
     private fun swapFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout,fragment)
+        fragmentTransaction.replace(R.id.frameLayout, fragment)
         fragmentTransaction.commit()
 
         binding.drawerLayout.closeDrawers()
     }
-
-    private fun goToLogoutFrag() {
-        TODO("Not yet implemented")
-    }
-
-    private fun goToVaccineFrag() {
-        TODO("Not yet implemented")
-    }
-
+    /*
     fun hideKeyboard(view: View) {
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+     */
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // we need to do this to respond correctly to clicks on menu items, otherwise it won't be caught
