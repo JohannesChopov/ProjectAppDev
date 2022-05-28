@@ -10,7 +10,9 @@ import com.example.mobilevax.model.Vaccine
 
 class VaccineAdapter(val items: List<Vaccine>) : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
 
-    inner class VaccineViewHolder(currentItemView: View) : RecyclerView.ViewHolder(currentItemView)
+    inner class VaccineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    }
 
     // this creates the needed ViewHolder class that links our layout XML to our viewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VaccineViewHolder {

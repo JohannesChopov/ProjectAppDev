@@ -48,6 +48,11 @@ class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
 
     private fun sampleTodoList() = arrayListOf(
         Vaccine("Moderna"),
+        Vaccine("Moderna"),
+        Vaccine("Moderna"),
+        Vaccine("Moderna"),
+        Vaccine("Moderna"),
+        Vaccine("Moderna"),
         Vaccine("Pfizer"),
         Vaccine("Astra"),
         Vaccine("flu-shotje"),
