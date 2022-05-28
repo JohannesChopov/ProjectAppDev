@@ -1,4 +1,4 @@
-package com.example.mobilevax
+package com.example.mobilevax.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,10 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.mobilevax.HomeActivity
+import com.example.mobilevax.R
 import com.example.mobilevax.databinding.FragmentLoginBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.snackbar.Snackbar
@@ -92,7 +93,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                                     if (task.isSuccessful) {
                                         val firebaseUser: FirebaseUser = task.result!!.user!!
                                         msg("Logging in", view)
-                                        val intent = Intent(activity,HomeActivity::class.java)
+                                        val intent = Intent(activity, HomeActivity::class.java)
                                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                         startActivity(intent)
                                     }

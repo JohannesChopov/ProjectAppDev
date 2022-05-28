@@ -8,5 +8,8 @@
     <item
         android:id="@+id/goToLogout"
         android:title="Logout/remove account" />
+    <item
+        android:id="@+id/addToVaccines"
+        android:title="Add vaccine" />
     </group>
 </menu>

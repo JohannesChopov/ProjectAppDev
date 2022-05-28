@@ -6,7 +6,7 @@
     app:startDestination="@id/testFragment">
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.example.mobilevax.TestFragment"
+        android:name="com.example.mobilevax.fragments.TestFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test" >
     </fragment>

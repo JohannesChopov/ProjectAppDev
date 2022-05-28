@@ -1,4 +1,4 @@
-package com.example.mobilevax
+package com.example.mobilevax.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.mobilevax.R
 import com.example.mobilevax.databinding.FragmentRegisterBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.snackbar.Snackbar

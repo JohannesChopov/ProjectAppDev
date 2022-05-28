@@ -1,19 +1,14 @@
 package com.example.mobilevax
 
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.view.inputmethod.InputMethodManager
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.mobilevax.databinding.ActivityHomeBinding
-import com.example.mobilevax.model.User
-import com.google.android.material.navigation.NavigationView
+import com.example.mobilevax.fragments.AddVaccineFragment
+import com.example.mobilevax.fragments.TestFragment
+import com.example.mobilevax.fragments.VaccineListFragment
 
 class HomeActivity : AppCompatActivity(){
 
@@ -57,6 +52,7 @@ class HomeActivity : AppCompatActivity(){
             when (it.itemId) {
                 R.id.goToLogout -> swapFragment(TestFragment())
                 R.id.goToVaccines -> swapFragment(VaccineListFragment())
+                R.id.addToVaccines -> swapFragment(AddVaccineFragment())
             }
             true
         }

@@ -1,11 +1,11 @@
-package com.example.mobilevax
+package com.example.mobilevax.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mobilevax.R
 import com.example.mobilevax.model.Vaccine
 
 class VaccineAdapter(val items: List<Vaccine>) : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {

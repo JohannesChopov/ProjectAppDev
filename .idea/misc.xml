@@ -9,12 +9,15 @@
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/MobileVax/app/src/main/res/layout/fragment_register.xml" value="0.30364583333333334" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.225" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/drawable/ic_launcher_background.xml" value="0.225" />
+        <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/drawable/layout_border.xml" value="0.2575" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/activity_home.xml" value="0.10185185185185185" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/activity_main.xml" value="0.10185185185185185" />
+        <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_addvaccine.xml" value="0.18795289855072464" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_login.xml" value="0.25905797101449274" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_recycler_view.xml" value="0.2" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_register.xml" value="0.264" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_test.xml" value="0.264" />
+        <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_vaccineinfo.xml" value="0.2504528985507246" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_vaccinelist.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/item_vaccine.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/item_vaxxin.xml" value="0.12613981762917933" />

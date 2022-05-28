@@ -1,4 +1,4 @@
-package com.example.mobilevax
+package com.example.mobilevax.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,13 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mobilevax.HomeActivity
+import com.example.mobilevax.R
+import com.example.mobilevax.adapters.VaccineAdapter
 import com.example.mobilevax.databinding.FragmentVaccinelistBinding
 import com.example.mobilevax.model.Vaccine
+import java.time.LocalDate
+import java.util.*
 
 class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
 
     private lateinit var binding: FragmentVaccinelistBinding
-    private val vaccineList = sampleTodoList()
+    public val vaccineList = sampleTodoList()
     private lateinit var main: HomeActivity
     private lateinit var adapter: VaccineAdapter
 
@@ -47,15 +52,9 @@ class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
     }
 
     private fun sampleTodoList() = arrayListOf(
-        Vaccine("Moderna"),
-        Vaccine("Moderna"),
-        Vaccine("Moderna"),
-        Vaccine("Moderna"),
-        Vaccine("Moderna"),
-        Vaccine("Moderna"),
-        Vaccine("Pfizer"),
-        Vaccine("Astra"),
-        Vaccine("flu-shotje"),
-        Vaccine("shotje van verkiezingen")
+        Vaccine("Moderna", Date(2021, 12, 31)),
+        Vaccine("Pfizer", Date(2021, 12, 31)),
+        Vaccine("Astra", Date(2021, 12, 31)),
+        Vaccine("flu-shot", Date(2021, 12, 31))
     )
 }

@@ -1,4 +1,4 @@
-package com.example.mobilevax
+package com.example.mobilevax.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.mobilevax.databinding.FragmentRegisterBinding
+import com.example.mobilevax.MainActivity
+import com.example.mobilevax.R
 import com.example.mobilevax.databinding.FragmentTestBinding
 
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class TestFragment: Fragment(R.layout.fragment_register) {
     private lateinit var binding: FragmentTestBinding
