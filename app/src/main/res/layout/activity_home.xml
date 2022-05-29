@@ -8,10 +8,10 @@
     tools:context=".HomeActivity">
 
 
-        <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/frameLayout" />
+            android:id="@+id/frameLayout"/>
 
 
     <com.google.android.material.navigation.NavigationView
@@ -21,6 +21,8 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"
         android:layout_gravity="start"
-        />
+        >
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

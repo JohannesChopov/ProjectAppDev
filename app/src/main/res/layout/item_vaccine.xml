@@ -6,7 +6,7 @@
     android:layout_height="100dp"
     android:background="@drawable/layout_border"
     android:padding="16dp"
-    android:id="@+id/rowLayout"
+    android:id="@+id/itemLayout"
     app:navGraph="@navigation/nav_graph_home"
     >
 

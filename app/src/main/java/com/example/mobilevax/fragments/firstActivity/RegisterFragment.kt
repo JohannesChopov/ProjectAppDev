@@ -33,7 +33,7 @@ class RegisterFragment: Fragment(R.layout.fragment_register) {
 
     private fun makeAccount(view: View) {
         when {
-            //Als er enkel spaties worden ingevoerd crasht de app
+            //Als er enkel spaties worden ingevoerd wordt er gevraagd input te geven
             TextUtils.isEmpty(binding.edRegisterEmail.text.toString().trim { it <= ' '}) -> {
                 msg("Please enter an email address", view)
             }

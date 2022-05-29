@@ -31,7 +31,7 @@ class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
         binding = FragmentVaccinelistBinding.inflate(layoutInflater)
         main = activity as HomeActivity
 
-        adapter = VaccineAdapter(/*vaccineList*/)
+        adapter = VaccineAdapter(parentFragment)
         binding.rvwVaccine.adapter = adapter
         // If we don't supply a layout manager, the recyclerview will not be displayed
         // there are three options here: a simple LinearLayoutManager (1-dimensional), a GridLayoutManager (2D) or a StaggeredGridLayoutManager

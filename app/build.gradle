@@ -7,6 +7,9 @@ plugins {
     id 'kotlin-kapt'
     //for safeargs
     id 'androidx.navigation.safeargs.kotlin'
+    //parcelable
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -37,6 +40,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -72,6 +76,10 @@ dependencies {
     // Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    //Kotlin coroutines
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5"
 
     // Feature module Support
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"

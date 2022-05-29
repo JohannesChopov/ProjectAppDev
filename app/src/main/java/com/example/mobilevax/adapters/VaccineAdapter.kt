@@ -4,17 +4,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobilevax.R
 import com.example.mobilevax.fragments.secondActivity.VaccineListFragmentDirections
 import com.example.mobilevax.model.Vaccine
 
-class VaccineAdapter() : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
+class VaccineAdapter(val parentFragment: Fragment?) : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
 
     private var items = emptyList<Vaccine>()
 
-    class VaccineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {}
+    inner class VaccineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    }
 
     // this creates the needed ViewHolder class that links our layout XML to our viewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VaccineViewHolder {
@@ -29,9 +31,10 @@ class VaccineAdapter() : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>(
         holder.itemView.apply {
             findViewById<TextView>(R.id.txtVaccineName).text = currentVaccine.name
         }
+
         holder.itemView.setOnClickListener {
             val action = VaccineListFragmentDirections.actionListFragmentToVaccineinfoFragment(currentVaccine)
-            holder.itemView.findNavController().navigate(action)
+            parentFragment?.findNavController()?.navigate(action)
         }
     }
 

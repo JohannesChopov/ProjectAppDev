@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mobilevax.databinding.ActivityHomeBinding
 import com.example.mobilevax.fragments.secondActivity.AddVaccineFragment
+import com.example.mobilevax.fragments.secondActivity.HostListOrInfoFragment
 import com.example.mobilevax.fragments.secondActivity.TestFragment
 import com.example.mobilevax.fragments.secondActivity.VaccineListFragment
 
@@ -15,12 +16,14 @@ class HomeActivity : AppCompatActivity(){
     private lateinit var binding: ActivityHomeBinding
     private lateinit var menuBarToggle: ActionBarDrawerToggle
     private var vaccinelistFragment = VaccineListFragment()
+    private var hostListOrInfoFragment = HostListOrInfoFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
 
-        setupVaccineListFragment()
+        //setupVaccineListFragment()
+        setupFragmentHost()
         setupMenuDrawer()
 
         setContentView(binding.root)
@@ -28,6 +31,13 @@ class HomeActivity : AppCompatActivity(){
     }
 
     private fun setupVaccineListFragment() {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.frameLayout, vaccinelistFragment)
+            commit()
+        }
+    }
+
+    private fun setupFragmentHost() {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frameLayout, vaccinelistFragment)
             commit()
@@ -51,7 +61,7 @@ class HomeActivity : AppCompatActivity(){
 
             when (it.itemId) {
                 R.id.goToLogout -> swapFragment(TestFragment())
-                R.id.goToVaccines -> swapFragment(VaccineListFragment())
+                R.id.goToVaccines -> swapFragment(HostListOrInfoFragment())
                 R.id.addToVaccines -> swapFragment(AddVaccineFragment())
             }
             true
