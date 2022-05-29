@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.mobilevax.HomeActivity
+import com.example.mobilevax.activities.HomeActivity
 import com.example.mobilevax.R
 import com.example.mobilevax.databinding.FragmentLoginBinding
 import com.google.android.gms.tasks.OnCompleteListener

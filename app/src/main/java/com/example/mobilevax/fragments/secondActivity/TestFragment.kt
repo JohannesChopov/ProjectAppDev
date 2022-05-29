@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.mobilevax.MainActivity
 import com.example.mobilevax.R
+import com.example.mobilevax.activities.MainActivity
 import com.example.mobilevax.databinding.FragmentTestBinding
-
 import com.google.firebase.auth.FirebaseAuth
 
 class TestFragment: Fragment(R.layout.fragment_register) {

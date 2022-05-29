@@ -4,14 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobilevax.R
 import com.example.mobilevax.fragments.secondActivity.VaccineListFragmentDirections
 import com.example.mobilevax.model.Vaccine
 
-class VaccineAdapter(val parentFragment: Fragment?) : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
+class VaccineAdapter(/*val parentFragment: Fragment*/) : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
 
     private var items = emptyList<Vaccine>()
 
@@ -34,7 +33,7 @@ class VaccineAdapter(val parentFragment: Fragment?) : RecyclerView.Adapter<Vacci
 
         holder.itemView.setOnClickListener {
             val action = VaccineListFragmentDirections.actionListFragmentToVaccineinfoFragment(currentVaccine)
-            parentFragment?.findNavController()?.navigate(action)
+            holder.itemView.findNavController().navigate(action)
         }
     }
 

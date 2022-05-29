@@ -50,7 +50,7 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
             //navigate back
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.frameLayout, VaccineListFragment())
+            fragmentTransaction.replace(R.id.frameLayout, HostListOrInfoFragment())
             fragmentTransaction.commit()
         }
         else {

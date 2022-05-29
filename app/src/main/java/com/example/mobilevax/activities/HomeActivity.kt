@@ -1,10 +1,11 @@
-package com.example.mobilevax
+package com.example.mobilevax.activities
 
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.mobilevax.R
 import com.example.mobilevax.databinding.ActivityHomeBinding
 import com.example.mobilevax.fragments.secondActivity.AddVaccineFragment
 import com.example.mobilevax.fragments.secondActivity.HostListOrInfoFragment
@@ -15,8 +16,8 @@ class HomeActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var menuBarToggle: ActionBarDrawerToggle
-    private var vaccinelistFragment = VaccineListFragment()
-    private var hostListOrInfoFragment = HostListOrInfoFragment()
+    private val vaccinelistFragment = VaccineListFragment()
+    private val hostListOrInfoFragment = HostListOrInfoFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,23 +30,27 @@ class HomeActivity : AppCompatActivity(){
         setContentView(binding.root)
         println("WelcomeActivity--onCreate")
     }
-
+    /*
     private fun setupVaccineListFragment() {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frameLayout, vaccinelistFragment)
             commit()
         }
     }
+     */
 
     private fun setupFragmentHost() {
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.frameLayout, vaccinelistFragment)
+            replace(R.id.frameLayout, hostListOrInfoFragment)
             commit()
         }
     }
 
     private fun setupMenuDrawer() {
-        menuBarToggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.menu_open, R.string.menu_close)
+        menuBarToggle = ActionBarDrawerToggle(this, binding.drawerLayout,
+            R.string.menu_open,
+            R.string.menu_close
+        )
         binding.drawerLayout.addDrawerListener(menuBarToggle)
         // it's now ready to be used
         menuBarToggle.syncState()

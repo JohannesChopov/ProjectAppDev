@@ -1,9 +1,9 @@
-package com.example.mobilevax
+package com.example.mobilevax.activities
 
-import androidx.appcompat.app.AppCompatActivity
-import com.example.mobilevax.databinding.ActivityMainBinding
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.mobilevax.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

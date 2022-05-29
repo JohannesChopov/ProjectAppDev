@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mobilevax.HomeActivity
 import com.example.mobilevax.R
 import com.example.mobilevax.adapters.VaccineAdapter
 import com.example.mobilevax.databinding.FragmentVaccinelistBinding
@@ -17,7 +16,7 @@ import com.example.mobilevax.viewmodel.VaccineViewModel
 class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
 
     private lateinit var binding: FragmentVaccinelistBinding
-    private lateinit var main: HomeActivity
+    //private lateinit var main: HomeActivity
     private lateinit var adapter: VaccineAdapter
     private lateinit var vaccineViewModel: VaccineViewModel
 
@@ -27,9 +26,9 @@ class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentVaccinelistBinding.inflate(layoutInflater)
-        main = activity as HomeActivity
+        //main = activity as HomeActivity
 
-        adapter = VaccineAdapter(parentFragment)
+        adapter = VaccineAdapter(/*this*/)
         binding.rvwVaccine.adapter = adapter
         // If we don't supply a layout manager, the recyclerview will not be displayed
         // there are three options here: a simple LinearLayoutManager (1-dimensional), a GridLayoutManager (2D) or a StaggeredGridLayoutManager
