@@ -1,4 +1,4 @@
-package com.example.mobilevax.fragments
+package com.example.mobilevax.fragments.list
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,19 +1,15 @@
 package com.example.mobilevax.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.mobilevax.MainActivity
 import com.example.mobilevax.R
 import com.example.mobilevax.adapters.VaccineAdapter
 import com.example.mobilevax.databinding.FragmentAddvaccineBinding
-import com.example.mobilevax.databinding.FragmentTestBinding
-import com.example.mobilevax.databinding.FragmentVaccinelistBinding
+import com.example.mobilevax.fragments.list.VaccineListFragment
 import com.example.mobilevax.model.Vaccine
-import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 
 class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
