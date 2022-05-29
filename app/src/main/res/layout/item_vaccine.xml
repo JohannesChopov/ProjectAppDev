@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:background="@drawable/layout_border"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?selectableItemBackground"
     android:padding="16dp"
-    android:visibility="visible">
+    android:id="@+id/rowLayout"
+    app:navGraph="@navigation/nav_graph_home"
+    >
 
     <TextView
         android:id="@+id/txtVaccineName"

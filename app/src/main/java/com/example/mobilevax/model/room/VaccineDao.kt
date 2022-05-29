@@ -1,22 +1,21 @@
 package com.example.mobilevax.model.room
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.example.mobilevax.model.Vaccine
 
 @Dao
 interface VaccineDao {
-    @Query("SELECT * FROM Vaccine")
-    fun query(): List<Vaccine>
+    @Query("SELECT * FROM vaccine_table ORDER BY id ASC")
+    fun query(): LiveData<List<Vaccine>>
 
     @Update
     fun update(items: List<Vaccine>)
 
-    @Query("DELETE FROM Vaccine")
+    @Query("DELETE FROM vaccine_table")
     fun deleteAll()
 
-    @Insert
-    fun insert(items: List<Vaccine>)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addVaccine(vaccine: Vaccine)
+    //suspend voor te kunnen pauzeren van een functie
 }

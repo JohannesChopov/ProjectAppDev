@@ -5,7 +5,7 @@
     android:id="@+id/loginFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.LoginFragment">
+    tools:context=".fragments.firstActivity.LoginFragment">
 
     <Button
         android:id="@+id/btnLogin"

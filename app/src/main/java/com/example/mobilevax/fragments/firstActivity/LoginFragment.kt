@@ -1,4 +1,4 @@
-package com.example.mobilevax.fragments
+package com.example.mobilevax.fragments.firstActivity
 
 import android.content.Intent
 import android.os.Bundle

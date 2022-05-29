@@ -1,4 +1,4 @@
-package com.example.mobilevax.fragments
+package com.example.mobilevax.fragments.firstActivity
 
 import android.os.Bundle
 import android.text.TextUtils

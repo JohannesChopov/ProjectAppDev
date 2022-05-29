@@ -4,15 +4,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobilevax.R
+import com.example.mobilevax.fragments.secondActivity.VaccineListFragmentDirections
 import com.example.mobilevax.model.Vaccine
 
-class VaccineAdapter(val items: List<Vaccine>) : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
+class VaccineAdapter() : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
 
-    inner class VaccineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private var items = emptyList<Vaccine>()
 
-    }
+    class VaccineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {}
 
     // this creates the needed ViewHolder class that links our layout XML to our viewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VaccineViewHolder {
@@ -26,9 +28,17 @@ class VaccineAdapter(val items: List<Vaccine>) : RecyclerView.Adapter<VaccineAda
         val currentVaccine = items[position]
         holder.itemView.apply {
             findViewById<TextView>(R.id.txtVaccineName).text = currentVaccine.name
-            //findViewById<CheckBox>(R.id.chkTodoDone).isChecked = currentTodoItem.isDone
+        }
+        holder.itemView.setOnClickListener {
+            val action = VaccineListFragmentDirections.actionListFragmentToVaccineinfoFragment(currentVaccine)
+            holder.itemView.findNavController().navigate(action)
         }
     }
 
     override fun getItemCount(): Int = items.size
+
+    fun setData(vaccine: List<Vaccine>) {
+        this.items = vaccine
+        notifyDataSetChanged()
+    }
 }

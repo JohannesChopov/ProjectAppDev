@@ -1,7 +1,7 @@
-package com.example.mobilevax.model
+package com.example.mobilevax.model.room
 
 import androidx.lifecycle.LiveData
-import com.example.mobilevax.model.room.VaccineDao
+import com.example.mobilevax.model.Vaccine
 
 class VaccineRepository(private val vaccineDao: VaccineDao) {
     val readAllData: LiveData<List<Vaccine>> = vaccineDao.query()

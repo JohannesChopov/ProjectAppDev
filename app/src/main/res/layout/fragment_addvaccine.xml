@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Name"
+        android:text="Name of vaccine"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Date"
+        android:text="Date injected"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -46,28 +46,18 @@
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
-
-    <EditText
-        android:id="@+id/edAddDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAddDate"
-        tools:text="@tools:sample/date/ddmmyy" />
+        app:layout_constraintTop_toBottomOf="@+id/textAddDate" />
 
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="197dp"
         android:layout_height="52dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="56dp"
         android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edAddDate" />
+        app:layout_constraintTop_toBottomOf="@+id/datePickerVaccine" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

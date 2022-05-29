@@ -3,10 +3,9 @@ package com.example.mobilevax.model.room
 import android.content.Context
 import androidx.room.Room
 import com.example.mobilevax.model.Vaccine
-import com.example.mobilevax.model.VaccineRepository
-import java.security.AccessControlContext
 
-class VaccineRoomRepository(appContext: Context) : VaccineRepository {
+class VaccineRoomRepository(appContext: Context)/* : VaccineRepository*/ {
+    /*
     private val db: VaccineDatabase
     private val dao: VaccineDao
 
@@ -26,4 +25,5 @@ class VaccineRoomRepository(appContext: Context) : VaccineRepository {
             dao.insert(items)
         }
     }
+     */
 }

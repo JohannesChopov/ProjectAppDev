@@ -6,8 +6,8 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.mobilevax.fragments.LoginFragment"
-        android:label="fragment_login"
+        android:name="com.example.mobilevax.fragments.firstActivity.LoginFragment"
+        android:label="login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
@@ -15,8 +15,8 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.mobilevax.fragments.RegisterFragment"
-        android:label="fragment_register"
+        android:name="com.example.mobilevax.fragments.firstActivity.RegisterFragment"
+        android:label="register"
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"

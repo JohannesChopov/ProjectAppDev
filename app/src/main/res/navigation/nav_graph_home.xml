@@ -3,11 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_home">
-    app:startDestination="@id/testFragment">
+    app:startDestination="@id/listFragment">
     <fragment
-        android:id="@+id/testFragment"
-        android:name="com.example.mobilevax.fragments.TestFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_test" >
+        android:id="@+id/listFragment"
+        android:name="com.example.mobilevax.fragments.secondActivity.VaccineListFragment"
+        android:label="list"
+        tools:layout="@layout/fragment_vaccinelist" >
+        <action
+            android:id="@+id/action_listFragment_to_vaccineinfoFragment"
+            app:destination="@id/vaccineinfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vaccineinfoFragment"
+        android:name="com.example.mobilevax.fragments.secondActivity.VaccineInfoFragment"
+        android:label="info"
+        tools:layout="@layout/fragment_vaccineinfo" >
+        <action
+            android:id="@+id/action_vaccineinfoFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentVaccine"
+            app:argType="com.example.mobilevax.model.Vaccine" />
     </fragment>
 </navigation>

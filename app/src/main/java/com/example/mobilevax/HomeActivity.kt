@@ -6,9 +6,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mobilevax.databinding.ActivityHomeBinding
-import com.example.mobilevax.fragments.AddVaccineFragment
-import com.example.mobilevax.fragments.TestFragment
-import com.example.mobilevax.fragments.VaccineListFragment
+import com.example.mobilevax.fragments.secondActivity.AddVaccineFragment
+import com.example.mobilevax.fragments.secondActivity.TestFragment
+import com.example.mobilevax.fragments.secondActivity.VaccineListFragment
 
 class HomeActivity : AppCompatActivity(){
 

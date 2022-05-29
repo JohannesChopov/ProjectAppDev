@@ -1,10 +1,12 @@
-package com.example.mobilevax.model.room
+package com.example.mobilevax.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mobilevax.model.Vaccine
+import com.example.mobilevax.model.room.VaccineDatabase
+import com.example.mobilevax.model.room.VaccineRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
