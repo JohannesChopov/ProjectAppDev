@@ -39,9 +39,10 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
         val day = binding.datePickerVaccine.dayOfMonth
         val month = binding.datePickerVaccine.month
         val year = binding.datePickerVaccine.year
+        //val date = Date()
 
         if (validInput(newVaccineName)) {
-            val vaccine = Vaccine(0,newVaccineName,Date(day,month,year))
+            val vaccine = Vaccine(0,newVaccineName,Date(year,month,day))
             mVaccineViewModel.addVaccine(vaccine)
             //display message to show its done succesfully
             Toast.makeText(requireContext(),
@@ -61,6 +62,6 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
     }
 
     private fun validInput(name: String): Boolean {
-        return !(TextUtils.isEmpty(name))
+        return !(TextUtils.isEmpty(name.trim { it <= ' ' }))
     }
 }

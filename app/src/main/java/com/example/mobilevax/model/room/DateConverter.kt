@@ -11,6 +11,6 @@ class DateConverter {
 
     @TypeConverter
     fun fromDate(date: Date?): Long? {
-        return date?.getTime()
+        return date?.time
     }
 }

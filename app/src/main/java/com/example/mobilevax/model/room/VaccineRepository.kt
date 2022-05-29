@@ -9,4 +9,8 @@ class VaccineRepository(private val vaccineDao: VaccineDao) {
     suspend fun addVaccine(vaccine: Vaccine) {
         vaccineDao.addVaccine(vaccine)
     }
+
+    suspend fun deleteVaccine(vaccine: Vaccine) {
+        vaccineDao.deleteVaccine(vaccine)
+    }
 }

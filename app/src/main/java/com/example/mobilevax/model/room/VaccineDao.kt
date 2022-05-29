@@ -12,8 +12,8 @@ interface VaccineDao {
     @Update
     fun update(items: List<Vaccine>)
 
-    @Query("DELETE FROM vaccine_table")
-    fun deleteAll()
+    @Delete
+    suspend fun deleteVaccine(vaccine: Vaccine)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addVaccine(vaccine: Vaccine)

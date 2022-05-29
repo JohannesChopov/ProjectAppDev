@@ -6,10 +6,11 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.mobilevax.activities.HomeActivity
 import com.example.mobilevax.R
+import com.example.mobilevax.activities.HomeActivity
 import com.example.mobilevax.databinding.FragmentLoginBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.snackbar.Snackbar
@@ -72,15 +73,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             .setAction("Action", null).show()
 
     }
+    private fun msgToast(text: String) {
+        Toast.makeText(requireContext(),text,Toast.LENGTH_LONG).show()
+
+    }
 
     private fun loginAccount(view: View) {
         when {
             //Als er enkel spaties worden ingevoerd crasht de app
             TextUtils.isEmpty(binding.edLoginEmail.text.toString().trim { it <= ' '}) -> {
-                msg("Please enter an email", view)
+                msgToast("Please enter an email")
             }
             TextUtils.isEmpty(binding.edLoginPassword.text.toString().trim { it <= ' '}) -> {
-                msg("Please enter a password", view)
+                msgToast("Please enter a password")
             }
             else -> {
                 val email:String = binding.edLoginEmail.text.toString().trim { it <= ' '}
@@ -92,19 +97,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                                 OnCompleteListener<AuthResult> { task ->
                                     if (task.isSuccessful) {
                                         val firebaseUser: FirebaseUser = task.result!!.user!!
-                                        msg("Logging in", view)
+                                        msgToast("Logging in")
                                         val intent = Intent(activity, HomeActivity::class.java)
                                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                         startActivity(intent)
                                     }
                                     else {
-                                        msg("Email or password is incorrect. Try with another email or password", view)
+                                        msgToast("Email or password is incorrect. Try with another email or password")
                                     }
                                 }
                             )
                         }
                         else {
-                            msg("Email is not registered. First register your email",view)
+                            msgToast("Email is not registered. First register your email")
                         }
                     }
                 )

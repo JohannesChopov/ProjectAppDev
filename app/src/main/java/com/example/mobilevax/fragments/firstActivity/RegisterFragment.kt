@@ -5,6 +5,7 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mobilevax.R
@@ -35,10 +36,10 @@ class RegisterFragment: Fragment(R.layout.fragment_register) {
         when {
             //Als er enkel spaties worden ingevoerd wordt er gevraagd input te geven
             TextUtils.isEmpty(binding.edRegisterEmail.text.toString().trim { it <= ' '}) -> {
-                msg("Please enter an email address", view)
+                msgToast("Please enter an email address")
             }
             TextUtils.isEmpty(binding.edRegisterPassword.text.toString().trim { it <= ' '}) -> {
-                msg("Please enter a password", view)
+                msgToast("Please enter a password")
             }
             else -> {
                 val email:String = binding.edRegisterEmail.text.toString().trim { it <= ' '}
@@ -48,11 +49,11 @@ class RegisterFragment: Fragment(R.layout.fragment_register) {
                     OnCompleteListener<AuthResult> {
                         task -> if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
-                            msg("Account created", view)
+                            msgToast("Account created")
                             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                         }
                         else {
-                            msg("Password of email is incorrect", view)
+                            msgToast("Password of email is incorrect")
                         }
                     }
                 )
@@ -63,6 +64,11 @@ class RegisterFragment: Fragment(R.layout.fragment_register) {
     private fun msg(text: String, view: View) {
         Snackbar.make(view, text, Snackbar.LENGTH_LONG)
             .setAction("Action", null).show()
+
+    }
+
+    private fun msgToast(text: String) {
+        Toast.makeText(requireContext(),text, Toast.LENGTH_LONG).show()
 
     }
 }

@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class VaccineViewModel(application: Application): AndroidViewModel(application) {
+    //klasse houdt data bij die bij de view hoort
     internal val readAllData: LiveData<List<Vaccine>>
     private val repository: VaccineRepository
 
@@ -23,6 +24,12 @@ class VaccineViewModel(application: Application): AndroidViewModel(application) 
     fun addVaccine(vaccine: Vaccine) { //using coroutine to run in backgroundthread instead of mainthread
         viewModelScope.launch(Dispatchers.IO) {
             repository.addVaccine(vaccine)
+        }
+    }
+
+    fun deleteVaccine(vaccine: Vaccine) {
+        viewModelScope.launch(Dispatchers.IO) {//running query from background thread
+            repository.deleteVaccine(vaccine)
         }
     }
 }
