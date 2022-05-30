@@ -10,7 +10,7 @@ import com.example.mobilevax.R
 import com.example.mobilevax.fragments.secondActivity.VaccineListFragmentDirections
 import com.example.mobilevax.model.Vaccine
 
-class VaccineAdapter(/*val parentFragment: Fragment*/) : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
+class VaccineAdapter() : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
 
     private var items = emptyList<Vaccine>()
 

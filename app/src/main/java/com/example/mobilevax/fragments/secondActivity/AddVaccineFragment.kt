@@ -28,7 +28,7 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
         //val view = inflater.inflate(R.layout.fragment_addvaccine, container, false)
         binding = FragmentAddvaccineBinding.inflate(layoutInflater)
 
-        mVaccineViewModel = ViewModelProvider(this).get(VaccineViewModel::class.java)
+        mVaccineViewModel = ViewModelProvider(this)[VaccineViewModel::class.java]
 
         binding.btnAdd.setOnClickListener(this::addVaccine)
         return binding.root
@@ -36,23 +36,32 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
 
     private fun addVaccine(it : View) {
         val newVaccineName = binding.edAddName.text.toString()
+
         val day = binding.datePickerVaccine.dayOfMonth
         val month = binding.datePickerVaccine.month
         val year = binding.datePickerVaccine.year
-        //val date = Date()
+        //For some reason somewhere a 1900 is always added to year. Years in date start from this.
+        val vaccineDate = Date(year-1900,month-0,day-0)
 
-        if (validInput(newVaccineName)) {
-            val vaccine = Vaccine(0,newVaccineName,Date(year,month,day))
-            mVaccineViewModel.addVaccine(vaccine)
-            //display message to show its done succesfully
-            Toast.makeText(requireContext(),
-                "Added vaccine.",
-                Toast.LENGTH_LONG).show()
-            //navigate back
-            val fragmentManager = requireActivity().supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.frameLayout, HostListOrInfoFragment())
-            fragmentTransaction.commit()
+        if (validNameInput(newVaccineName)) {
+            if (hasDatePassed(vaccineDate)) {
+                val vaccine = Vaccine(0,newVaccineName,vaccineDate)
+                mVaccineViewModel.addVaccine(vaccine)
+                //display message to show its done succesfully
+                Toast.makeText(requireContext(),
+                    "Added vaccine.",
+                    Toast.LENGTH_LONG).show()
+                //navigate back
+                val fragmentManager = requireActivity().supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.frameLayout, HostListOrInfoFragment())
+                fragmentTransaction.commit()
+            }
+            else {
+                Toast.makeText(requireContext(),
+                    "Please use a date that has passed.",
+                    Toast.LENGTH_LONG).show()
+            }
         }
         else {
             Toast.makeText(requireContext(),
@@ -61,7 +70,11 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
         }
     }
 
-    private fun validInput(name: String): Boolean {
+    private fun validNameInput(name: String): Boolean {
         return !(TextUtils.isEmpty(name.trim { it <= ' ' }))
+    }
+
+    private fun hasDatePassed(vaccineDate: Date): Boolean {
+        return !vaccineDate.after(Date())
     }
 }

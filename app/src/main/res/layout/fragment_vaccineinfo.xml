@@ -9,9 +9,10 @@
         android:id="@+id/textVaccineName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name of vaccine"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="40dp"
+        android:text="Name of vaccine:"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,40 +20,36 @@
         android:id="@+id/textNameContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textVaccineName" />
+        app:layout_constraintStart_toEndOf="@+id/textVaccineName"
+        app:layout_constraintTop_toTopOf="@+id/textVaccineName" />
 
     <TextView
         android:id="@+id/textVaccineDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Date injected"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="48dp"
+        android:text="Date injected:"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNameContent" />
+        app:layout_constraintTop_toBottomOf="@+id/textVaccineName" />
 
     <TextView
         android:id="@+id/textDateContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textVaccineDate" />
+        android:layout_marginStart="68dp"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textVaccineDate"
+        app:layout_constraintTop_toTopOf="@+id/textVaccineDate" />
 
     <Button
         android:id="@+id/btnReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="64dp"
         android:layout_marginBottom="160dp"
         android:text="Go back"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,7 +59,7 @@
         android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="68dp"
         android:layout_marginBottom="160dp"
         android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"

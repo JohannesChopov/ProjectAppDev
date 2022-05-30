@@ -16,7 +16,6 @@ import com.example.mobilevax.viewmodel.VaccineViewModel
 class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
 
     private lateinit var binding: FragmentVaccinelistBinding
-    //private lateinit var main: HomeActivity
     private lateinit var adapter: VaccineAdapter
     private lateinit var vaccineViewModel: VaccineViewModel
 
@@ -26,19 +25,30 @@ class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentVaccinelistBinding.inflate(layoutInflater)
-        //main = activity as HomeActivity
 
-        adapter = VaccineAdapter(/*this*/)
+        adapter = VaccineAdapter()
         binding.rvwVaccine.adapter = adapter
-        // If we don't supply a layout manager, the recyclerview will not be displayed
-        // there are three options here: a simple LinearLayoutManager (1-dimensional), a GridLayoutManager (2D) or a StaggeredGridLayoutManager
         binding.rvwVaccine.layoutManager = LinearLayoutManager(this.context)
 
         //VaccineViewModel
         vaccineViewModel = ViewModelProvider(this).get(VaccineViewModel::class.java)
         vaccineViewModel.readAllData.observe(viewLifecycleOwner, Observer { vaccine ->
             adapter.setData(vaccine)
+            checkEmptyList(binding,adapter)
         })
+
         return binding.root
     }
+
+    private fun checkEmptyList(bind: FragmentVaccinelistBinding, adapter: VaccineAdapter) {
+        //Bij lege lijst een mededeling
+        if (adapter.itemCount == 0) {
+            bind.txtEmptyMessage.text = "No vaccines added.\n Use button on top left to add new vaccine."
+        } //anders geen mededeling
+        else {
+            bind.txtEmptyMessage.text = ""
+        }
+    }
+
+
 }

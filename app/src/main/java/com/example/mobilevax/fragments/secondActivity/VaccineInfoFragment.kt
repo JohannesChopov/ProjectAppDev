@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.mobilevax.R
 import com.example.mobilevax.databinding.FragmentVaccineinfoBinding
 import com.example.mobilevax.viewmodel.VaccineViewModel
+import java.text.SimpleDateFormat
 
 class VaccineInfoFragment: Fragment(R.layout.fragment_vaccineinfo) {
     private lateinit var binding: FragmentVaccineinfoBinding
@@ -28,7 +29,8 @@ class VaccineInfoFragment: Fragment(R.layout.fragment_vaccineinfo) {
 
         vaccineViewModel = ViewModelProvider(this).get(VaccineViewModel::class.java)
         binding.textNameContent.setText(args.currentVaccine.name)
-        binding.textDateContent.setText(args.currentVaccine.date.toString())
+        val df = SimpleDateFormat("dd/MM/yyyy")
+        binding.textDateContent.setText(df.format(args.currentVaccine.date).toString())
 
         binding.btnReturn.setOnClickListener {
             findNavController().navigate(R.id.action_vaccineinfoFragment_to_listFragment)

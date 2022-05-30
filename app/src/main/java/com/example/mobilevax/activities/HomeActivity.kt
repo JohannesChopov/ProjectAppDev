@@ -9,7 +9,7 @@ import com.example.mobilevax.R
 import com.example.mobilevax.databinding.ActivityHomeBinding
 import com.example.mobilevax.fragments.secondActivity.AddVaccineFragment
 import com.example.mobilevax.fragments.secondActivity.HostListOrInfoFragment
-import com.example.mobilevax.fragments.secondActivity.TestFragment
+import com.example.mobilevax.fragments.secondActivity.LogoutFragment
 import com.example.mobilevax.fragments.secondActivity.VaccineListFragment
 
 class HomeActivity : AppCompatActivity(){
@@ -23,21 +23,12 @@ class HomeActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
 
-        //setupVaccineListFragment()
         setupFragmentHost()
         setupMenuDrawer()
 
         setContentView(binding.root)
         println("WelcomeActivity--onCreate")
     }
-    /*
-    private fun setupVaccineListFragment() {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.frameLayout, vaccinelistFragment)
-            commit()
-        }
-    }
-     */
 
     private fun setupFragmentHost() {
         supportFragmentManager.beginTransaction().apply {
@@ -65,7 +56,7 @@ class HomeActivity : AppCompatActivity(){
             it.isChecked = true
 
             when (it.itemId) {
-                R.id.goToLogout -> swapFragment(TestFragment())
+                R.id.goToLogout -> swapFragment(LogoutFragment())
                 R.id.goToVaccines -> swapFragment(HostListOrInfoFragment())
                 R.id.addToVaccines -> swapFragment(AddVaccineFragment())
             }
