@@ -42,6 +42,16 @@ class VaccineInfoFragment: Fragment(R.layout.fragment_vaccineinfo) {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        println("Fragment: onViewCreated")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        println("Fragment: onCreate")
+    }
+
     private fun deleteVaccine() {
         vaccineViewModel.deleteVaccine(args.currentVaccine)
         findNavController().navigate(R.id.action_vaccineinfoFragment_to_listFragment)

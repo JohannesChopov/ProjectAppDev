@@ -25,17 +25,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        println("Fragment: onCreateView")
-        // this looks a lot like activities! Fragments have their own lifecycle.
-        // return inflater.inflate(R.layout.fragment_first, container, false)
-        // -- above should NOT be needed since we used a constructor argument!
         binding = FragmentLoginBinding.inflate(layoutInflater)
         binding.btnGoToRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
         binding.btnLogin.setOnClickListener(this::loginAccount)
-        // remember to do this instead of super.onCreateView()
-        // otherwise nothing will happen.
         return binding.root
     }
 
@@ -44,8 +38,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         println("Fragment: onViewCreated")
     }
 
-    // here the view should NOT be set: onCreateView() is called afterwards.
-    // remember that accessing UI components here will crash!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         println("Fragment: onCreate")

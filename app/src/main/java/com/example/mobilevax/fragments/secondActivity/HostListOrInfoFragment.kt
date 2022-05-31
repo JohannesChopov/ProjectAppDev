@@ -24,4 +24,14 @@ class HostListOrInfoFragment : Fragment(R.layout.fragment_host_list_or_info) {
 
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        println("Fragment: onViewCreated")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        println("Fragment: onCreate")
+    }
 }

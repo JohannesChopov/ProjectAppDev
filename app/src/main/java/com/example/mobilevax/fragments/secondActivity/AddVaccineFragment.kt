@@ -33,6 +33,16 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        println("Fragment: onViewCreated")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        println("Fragment: onCreate")
+    }
+
     private fun addVaccine(it : View) {
         val newVaccineName = binding.edAddName.text.toString()
 

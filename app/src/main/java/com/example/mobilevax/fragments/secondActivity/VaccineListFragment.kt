@@ -39,6 +39,16 @@ class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        println("Fragment: onViewCreated")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        println("Fragment: onCreate")
+    }
+
     private fun checkEmptyList(bind: FragmentVaccinelistBinding, adapter: VaccineAdapter) {
         //Bij lege lijst een mededeling
         if (adapter.itemCount == 0) {

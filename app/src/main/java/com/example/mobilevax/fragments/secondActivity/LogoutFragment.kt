@@ -20,6 +20,7 @@ class LogoutFragment: Fragment(R.layout.fragment_register) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLogoutBinding.inflate(layoutInflater)
+        //uitloggen
         binding.btnLogOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(activity, MainActivity::class.java)
@@ -27,6 +28,7 @@ class LogoutFragment: Fragment(R.layout.fragment_register) {
             //Na het uitloggen mag de gebruiker niet zomaar met de back knop terug kunnen in de applicatie
             requireActivity().finish()
         }
+        //account verwijderen
         binding.btnDeleteAccount.setOnClickListener {
             FirebaseAuth.getInstance().currentUser!!.delete()
             FirebaseAuth.getInstance().signOut()
@@ -36,5 +38,15 @@ class LogoutFragment: Fragment(R.layout.fragment_register) {
             requireActivity().finish()
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        println("Fragment: onViewCreated")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        println("Fragment: onCreate")
     }
 }

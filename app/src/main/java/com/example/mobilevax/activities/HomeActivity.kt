@@ -41,7 +41,6 @@ class HomeActivity : AppCompatActivity(){
             R.string.menu_close
         )
         binding.drawerLayout.addDrawerListener(menuBarToggle)
-        // it's now ready to be used
         menuBarToggle.syncState()
 
         // when the menu drawer opens, the toggle button moves to a "back" button and it will close again.
@@ -71,12 +70,6 @@ class HomeActivity : AppCompatActivity(){
 
         binding.drawerLayout.closeDrawers()
     }
-    /*
-    fun hideKeyboard(view: View) {
-        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken, 0)
-    }
-     */
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // we need to do this to respond correctly to clicks on menu items, otherwise it won't be caught
