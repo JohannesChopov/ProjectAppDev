@@ -10,13 +10,11 @@ import com.example.mobilevax.databinding.ActivityHomeBinding
 import com.example.mobilevax.fragments.secondActivity.AddVaccineFragment
 import com.example.mobilevax.fragments.secondActivity.HostListOrInfoFragment
 import com.example.mobilevax.fragments.secondActivity.LogoutFragment
-import com.example.mobilevax.fragments.secondActivity.VaccineListFragment
 
 class HomeActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var menuBarToggle: ActionBarDrawerToggle
-    private val vaccinelistFragment = VaccineListFragment()
     private val hostListOrInfoFragment = HostListOrInfoFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {

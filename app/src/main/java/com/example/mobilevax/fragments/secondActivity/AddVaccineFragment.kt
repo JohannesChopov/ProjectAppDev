@@ -25,7 +25,6 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //val view = inflater.inflate(R.layout.fragment_addvaccine, container, false)
         binding = FragmentAddvaccineBinding.inflate(layoutInflater)
 
         mVaccineViewModel = ViewModelProvider(this)[VaccineViewModel::class.java]
@@ -48,9 +47,7 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
                 val vaccine = Vaccine(0,newVaccineName,vaccineDate)
                 mVaccineViewModel.addVaccine(vaccine)
                 //display message to show its done succesfully
-                Toast.makeText(requireContext(),
-                    "Added vaccine.",
-                    Toast.LENGTH_LONG).show()
+                msgToast("Added vaccine.")
                 //navigate back
                 val fragmentManager = requireActivity().supportFragmentManager
                 val fragmentTransaction = fragmentManager.beginTransaction()
@@ -58,16 +55,16 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
                 fragmentTransaction.commit()
             }
             else {
-                Toast.makeText(requireContext(),
-                    "Please use a date that has passed.",
-                    Toast.LENGTH_LONG).show()
+                msgToast("Please use a date that has passed.")
             }
         }
         else {
-            Toast.makeText(requireContext(),
-                "Please fill in a name for the vaccine.",
-                Toast.LENGTH_LONG).show()
+            msgToast("Please fill in a name for the vaccine.")
         }
+    }
+
+    private fun msgToast(text: String) {
+        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
     }
 
     private fun validNameInput(name: String): Boolean {

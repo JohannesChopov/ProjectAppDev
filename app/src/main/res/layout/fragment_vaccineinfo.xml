@@ -9,8 +9,8 @@
         android:id="@+id/textVaccineName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
         android:text="Name of vaccine:"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.012"
         app:layout_constraintStart_toEndOf="@+id/textVaccineName"
         app:layout_constraintTop_toTopOf="@+id/textVaccineName" />
 
@@ -29,11 +32,10 @@
         android:id="@+id/textVaccineDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
         android:layout_marginTop="48dp"
         android:text="Date injected:"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textVaccineName"
         app:layout_constraintTop_toBottomOf="@+id/textVaccineName" />
 
     <TextView
@@ -42,6 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textVaccineDate"
         app:layout_constraintTop_toTopOf="@+id/textVaccineDate" />
 
@@ -59,7 +63,7 @@
         android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="160dp"
         android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"

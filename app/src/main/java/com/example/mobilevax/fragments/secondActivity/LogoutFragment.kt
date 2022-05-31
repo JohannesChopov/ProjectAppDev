@@ -22,11 +22,18 @@ class LogoutFragment: Fragment(R.layout.fragment_register) {
         binding = FragmentLogoutBinding.inflate(layoutInflater)
         binding.btnLogOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(activity, MainActivity::class.java))
+            val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent)
+            //Na het uitloggen mag de gebruiker niet zomaar met de back knop terug kunnen in de applicatie
+            requireActivity().finish()
         }
         binding.btnDeleteAccount.setOnClickListener {
             FirebaseAuth.getInstance().currentUser!!.delete()
-            startActivity(Intent(activity, MainActivity::class.java))
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent)
+            //Na het uitloggen mag de gebruiker niet zomaar met de back knop terug kunnen in de applicatie
+            requireActivity().finish()
         }
         return binding.root
     }

@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/textLoginHeader"
-        android:layout_width="378dp"
+        android:layout_width="318dp"
         android:layout_height="90dp"
         android:layout_marginTop="16dp"
         android:text="Login"

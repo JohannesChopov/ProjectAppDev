@@ -15,11 +15,12 @@
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_addvaccine.xml" value="0.18795289855072464" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_host_list_or_info.xml" value="0.12092391304347826" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_login.xml" value="0.25905797101449274" />
+        <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_logout.xml" value="0.213768115942029" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_recycler_view.xml" value="0.2" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_register.xml" value="0.264" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_test.xml" value="0.264" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_vaccineinfo.xml" value="0.2504528985507246" />
-        <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_vaccinelist.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/fragment_vaccinelist.xml" value="0.25" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/item_vaccine.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/item_vaxxin.xml" value="0.12613981762917933" />
         <entry key="..\:/Users/Johannes/AndroidStudioProjects/ProjectAppDev/app/src/main/res/layout/nav_header.xml" value="0.31023550724637683" />

@@ -12,15 +12,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go to login"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textGoToLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/textGoToLogin"
+        app:layout_constraintVertical_bias="0.058" />
 
     <TextView
         android:id="@+id/textRegisterHeader"
-        android:layout_width="385dp"
-        android:layout_height="74dp"
+        android:layout_width="336dp"
+        android:layout_height="79dp"
         android:layout_marginTop="16dp"
         android:text="Register"
         android:textSize="50dp"
@@ -45,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="create password"
+        android:text="Create password"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

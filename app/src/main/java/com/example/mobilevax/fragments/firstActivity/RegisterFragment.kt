@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.mobilevax.R
 import com.example.mobilevax.databinding.FragmentRegisterBinding
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -66,14 +65,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         }
     }
 
-    private fun msg(text: String, view: View) {
-        Snackbar.make(view, text, Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show()
-
-    }
-
     private fun msgToast(text: String) {
-        Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
 
     }
 

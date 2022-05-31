@@ -15,7 +15,6 @@ import com.example.mobilevax.R
 import com.example.mobilevax.activities.HomeActivity
 import com.example.mobilevax.databinding.FragmentLoginBinding
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -52,33 +51,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         println("Fragment: onCreate")
     }
 
-    private fun login(view: View) {
-        if (binding.edLoginEmail.text.toString().isEmpty()) {
-            msg("Your username is empty!", view)
-            return
-        }
-        if (!binding.edLoginPassword.text.contentEquals("test")) {
-            msg("Invalid password!", view)
-            return
-        }
-
-        msg("And we're in!", view)
-        val intent = Intent(activity, HomeActivity::class.java)
-        // 1. the "easy but stupid" way
-        // intent.putExtra("username", binding.txtUsername.text.toString())
-        // 2. the "better" way, using a model
-        //intent.putExtra("user", createUser())
-        startActivity(intent)
-    }
-
-    private fun msg(text: String, view: View) {
-        Snackbar.make(view, text, Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show()
-
-    }
-
     private fun msgToast(text: String) {
-        Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
 
     }
 
