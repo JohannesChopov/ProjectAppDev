@@ -52,6 +52,8 @@ class MainActivity : AppCompatActivity() {
         val user : FirebaseUser? = firebaseAuth?.currentUser
         if (user != null) run {
             val intent = Intent(this, HomeActivity::class.java)
+            //nodig voor email weer te geven in volgende activity
+            intent.putExtra("userEmail", user.email)
             startActivity(intent)
             finish() //niet naar vorige activity gaan als er niet op "logout" is geklikt
         }

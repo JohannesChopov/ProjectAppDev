@@ -9,9 +9,6 @@ interface VaccineDao {
     @Query("SELECT * FROM vaccine_table ORDER BY id ASC")
     fun query(): LiveData<List<Vaccine>>
 
-    @Update
-    fun update(items: List<Vaccine>)
-
     @Delete
     suspend fun deleteVaccine(vaccine: Vaccine)
 

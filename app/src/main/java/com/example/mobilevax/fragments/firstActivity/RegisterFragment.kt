@@ -12,10 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mobilevax.R
 import com.example.mobilevax.databinding.FragmentRegisterBinding
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
     private lateinit var binding: FragmentRegisterBinding
@@ -50,17 +47,14 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 val password: String = binding.edRegisterPassword.text.toString().trim { it <= ' ' }
 
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(
-                        OnCompleteListener<AuthResult> { task ->
-                            if (task.isSuccessful) {
-                                val firebaseUser: FirebaseUser = task.result!!.user!!
-                                msgToast("Account created")
-                                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-                            } else {
-                                msgToast("Password of email is incorrect")
-                            }
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            msgToast("Account created")
+                            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                        } else {
+                            msgToast("Password of email is incorrect")
                         }
-                    )
+                    }
             }
         }
     }

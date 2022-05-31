@@ -14,8 +14,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.mobilevax.R
 import com.example.mobilevax.activities.HomeActivity
 import com.example.mobilevax.databinding.FragmentLoginBinding
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -53,7 +51,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             !isConnected() -> { //controle op internetverbinding.
                 msgToast("No internet connection. Connect with the internet.")
             }
-            //Als er enkel spaties worden ingevoerd crasht de app
+            //Als er enkel spaties worden ingevoerd is het ongeldig
             TextUtils.isEmpty(binding.edLoginEmail.text.toString().trim { it <= ' ' }) -> {
                 msgToast("Please enter an email")
             }
@@ -63,29 +61,27 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             else -> {
                 val email: String = binding.edLoginEmail.text.toString().trim { it <= ' ' }
                 val password: String = binding.edLoginPassword.text.toString().trim { it <= ' ' }
-                FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email).addOnCompleteListener(
-                    OnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                                .addOnCompleteListener(
-                                    OnCompleteListener<AuthResult> { task ->
-                                        if (task.isSuccessful) {
-                                            val firebaseUser: FirebaseUser = task.result!!.user!!
-                                            msgToast("Logging in")
-                                            val intent = Intent(activity, HomeActivity::class.java)
-                                            intent.flags =
-                                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                            startActivity(intent)
-                                        } else {
-                                            msgToast("Email or password is incorrect. Try with another email or password")
-                                        }
-                                    }
-                                )
-                        } else {
-                            msgToast("Email is not registered. First register your email")
+                FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                val firebaseUser: FirebaseUser = task.result!!.user!!
+                                msgToast("Logging in")
+                                //ga naar de volgende activity. Waar het om draait
+                                val intent = Intent(activity, HomeActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                intent.putExtra("userEmail", firebaseUser.email)
+                                startActivity(intent)
+                            }
+                            else {
+                                msgToast("Email or password is incorrect. Try with another email or password")
+                            }
                         }
                     }
-                )
+                    else {
+                        msgToast("Email is not registered. First register your email")
+                    }
+                }
             }
         }
     }

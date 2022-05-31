@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.mobilevax.R
-import com.example.mobilevax.adapters.VaccineAdapter
 import com.example.mobilevax.databinding.FragmentAddvaccineBinding
 import com.example.mobilevax.model.Vaccine
 import com.example.mobilevax.viewmodel.VaccineViewModel
@@ -17,7 +16,6 @@ import java.util.*
 
 class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
     private lateinit var binding: FragmentAddvaccineBinding
-    private lateinit var adapter: VaccineAdapter
     private lateinit var mVaccineViewModel: VaccineViewModel
 
     override fun onCreateView(
@@ -49,7 +47,7 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
         val day = binding.datePickerVaccine.dayOfMonth
         val month = binding.datePickerVaccine.month
         val year = binding.datePickerVaccine.year
-        //For some reason somewhere a 1900 is always added to year. Years in date start from this.
+        //For some reason 1900 years are always added to the put in year. To get the real year the user meant we subtract 1900
         val vaccineDate = Date(year-1900,month-0,day-0)
 
         if (validNameInput(newVaccineName)) {
@@ -61,7 +59,7 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
                 //navigate back
                 val fragmentManager = requireActivity().supportFragmentManager
                 val fragmentTransaction = fragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.frameLayout, HostListOrInfoFragment())
+                fragmentTransaction.replace(R.id.frameLayout, HostListOrInfoFragment()).addToBackStack(null)
                 fragmentTransaction.commit()
             }
             else {

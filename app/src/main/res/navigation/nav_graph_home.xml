@@ -20,7 +20,7 @@
         tools:layout="@layout/fragment_vaccineinfo" >
         <action
             android:id="@+id/action_vaccineinfoFragment_to_listFragment"
-            app:destination="@id/vaccinelistFragment" />
+            app:destination="@id/vaccinelistFragment"/>
         <argument
             android:name="currentVaccine"
             app:argType="com.example.mobilevax.model.Vaccine" />

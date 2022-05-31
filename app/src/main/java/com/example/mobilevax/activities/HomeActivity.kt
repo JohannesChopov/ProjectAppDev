@@ -2,6 +2,7 @@ package com.example.mobilevax.activities
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -43,11 +44,13 @@ class HomeActivity : AppCompatActivity(){
         binding.drawerLayout.addDrawerListener(menuBarToggle)
         menuBarToggle.syncState()
 
-        // when the menu drawer opens, the toggle button moves to a "back" button and it will close again.
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // handle menu drawer item clicks.
-        // since these are all events that influence the fragment list, delegate their actions!
+        //in de navHeader van de menu drawer displayen we de email van de user
+        val email = intent.getStringExtra("userEmail")
+        val header = binding.navView.getHeaderView(0)
+        header.findViewById<TextView>(R.id.txtUserEmail).text = email
+
         binding.navView.setNavigationItemSelectedListener {
 
             it.isChecked = true
@@ -64,7 +67,7 @@ class HomeActivity : AppCompatActivity(){
     private fun swapFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, fragment).addToBackStack("fragment")
+        fragmentTransaction.replace(R.id.frameLayout, fragment).addToBackStack(null)
 
         fragmentTransaction.commit()
 

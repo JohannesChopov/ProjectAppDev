@@ -17,15 +17,12 @@ class VaccineAdapter() : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>(
     inner class VaccineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
-    // this creates the needed ViewHolder class that links our layout XML to our viewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VaccineViewHolder {
-        // don't forget to set attachToRoot to false, otherwise it will crash!
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_vaccine, parent, false)
         return VaccineViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: VaccineViewHolder, position: Int) {
-        // bind the data to our items: set the todo text view text and checked state accordingly
         val currentVaccine = items[position]
         holder.itemView.apply {
             findViewById<TextView>(R.id.txtVaccineName).text = currentVaccine.name
@@ -34,6 +31,7 @@ class VaccineAdapter() : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>(
         holder.itemView.setOnClickListener {
             val action = VaccineListFragmentDirections.actionListFragmentToVaccineinfoFragment(currentVaccine)
             holder.itemView.findNavController().navigate(action)
+
         }
     }
 
