@@ -16,7 +16,7 @@ import java.util.*
 
 class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
     private lateinit var binding: FragmentAddvaccineBinding
-    private lateinit var mVaccineViewModel: VaccineViewModel
+    private lateinit var vaccineViewModel: VaccineViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,7 +25,7 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
     ): View? {
         binding = FragmentAddvaccineBinding.inflate(layoutInflater)
 
-        mVaccineViewModel = ViewModelProvider(this)[VaccineViewModel::class.java]
+        vaccineViewModel = ViewModelProvider(this)[VaccineViewModel::class.java]
 
         binding.btnAdd.setOnClickListener(this::addVaccine)
         return binding.root
@@ -53,7 +53,7 @@ class AddVaccineFragment: Fragment(R.layout.fragment_addvaccine) {
         if (validNameInput(newVaccineName)) {
             if (hasDatePassed(vaccineDate)) {
                 val vaccine = Vaccine(0,newVaccineName,vaccineDate)
-                mVaccineViewModel.addVaccine(vaccine)
+                vaccineViewModel.addVaccine(vaccine)
                 //display message to show its done succesfully
                 msgToast("Added vaccine.")
                 //navigate back

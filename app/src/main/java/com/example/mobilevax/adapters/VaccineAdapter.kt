@@ -31,14 +31,13 @@ class VaccineAdapter() : RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>(
         holder.itemView.setOnClickListener {
             val action = VaccineListFragmentDirections.actionListFragmentToVaccineinfoFragment(currentVaccine)
             holder.itemView.findNavController().navigate(action)
-
         }
     }
 
     override fun getItemCount(): Int = items.size
 
-    fun setData(vaccine: List<Vaccine>) {
-        this.items = vaccine
+    fun setData(vaccines: List<Vaccine>) {
+        this.items = vaccines
         notifyDataSetChanged()
     }
 }

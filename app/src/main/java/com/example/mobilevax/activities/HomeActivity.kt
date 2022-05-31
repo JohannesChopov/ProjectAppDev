@@ -67,8 +67,8 @@ class HomeActivity : AppCompatActivity(){
     private fun swapFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, fragment).addToBackStack(null)
 
+        fragmentTransaction.replace(R.id.frameLayout, fragment).addToBackStack(null)
         fragmentTransaction.commit()
 
         binding.drawerLayout.closeDrawers()

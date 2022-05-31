@@ -43,7 +43,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun msgToast(text: String) {
         Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
-
     }
 
     private fun loginAccount(view: View) {
@@ -69,16 +68,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                                 msgToast("Logging in")
                                 //ga naar de volgende activity. Waar het om draait
                                 val intent = Intent(activity, HomeActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 intent.putExtra("userEmail", firebaseUser.email)
                                 startActivity(intent)
-                            }
-                            else {
-                                msgToast("Email or password is incorrect. Try with another email or password")
+                            } else {
+                                msgToast("Password is incorrect. Try with another password")
                             }
                         }
-                    }
-                    else {
+                    } else {
                         msgToast("Email is not registered. First register your email")
                     }
                 }
@@ -89,16 +85,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun isConnected(): Boolean {
         var wifiConnected = false
         var mobileConnected = false
+
         val connectivityManager = requireActivity().getSystemService(
             Context.CONNECTIVITY_SERVICE
         ) as ConnectivityManager
         val networkInfo = connectivityManager.activeNetworkInfo
 
         if (networkInfo != null && networkInfo.isConnected) {
-            wifiConnected = networkInfo.type == ConnectivityManager.TYPE_WIFI
-            mobileConnected = networkInfo.type == ConnectivityManager.TYPE_MOBILE
+            wifiConnected = (networkInfo.type == ConnectivityManager.TYPE_WIFI)
+            mobileConnected = (networkInfo.type == ConnectivityManager.TYPE_MOBILE)
         }
-
-        return wifiConnected || mobileConnected
+        return (wifiConnected || mobileConnected)
     }
 }

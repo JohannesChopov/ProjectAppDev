@@ -52,7 +52,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                             msgToast("Account created")
                             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                         } else {
-                            msgToast("Password of email is incorrect")
+                            msgToast("Email address does not exist")
                         }
                     }
             }
@@ -61,7 +61,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private fun msgToast(text: String) {
         Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
-
     }
 
     private fun isConnected(): Boolean {
@@ -73,8 +72,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         val networkInfo = connectivityManager.activeNetworkInfo
 
         if (networkInfo != null && networkInfo.isConnected) {
-            wifiConnected = networkInfo.type == ConnectivityManager.TYPE_WIFI
-            mobileConnected = networkInfo.type == ConnectivityManager.TYPE_MOBILE
+            wifiConnected = (networkInfo.type == ConnectivityManager.TYPE_WIFI)
+            mobileConnected = (networkInfo.type == ConnectivityManager.TYPE_MOBILE)
         }
 
         return wifiConnected || mobileConnected

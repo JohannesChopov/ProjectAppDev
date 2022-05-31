@@ -1,7 +1,10 @@
 package com.example.mobilevax.model.room
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
 import com.example.mobilevax.model.Vaccine
 
 @Dao
@@ -12,7 +15,7 @@ interface VaccineDao {
     @Delete
     suspend fun deleteVaccine(vaccine: Vaccine)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     suspend fun addVaccine(vaccine: Vaccine)
     //suspend voor te kunnen pauzeren van een functie
 }

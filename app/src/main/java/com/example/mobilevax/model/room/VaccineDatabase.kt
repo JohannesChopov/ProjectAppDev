@@ -22,10 +22,7 @@ abstract class VaccineDatabase : RoomDatabase() {
                 return  tempInstance
             }
             synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    VaccineDatabase::class.java,
-                    "vaccine_database"
+                    val instance = Room.databaseBuilder(context.applicationContext, VaccineDatabase::class.java, "vaccine_database"
                 ).build()
                 INSTANCE = instance
                 return instance
