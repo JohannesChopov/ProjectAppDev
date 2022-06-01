@@ -31,8 +31,8 @@ class VaccineListFragment : Fragment(R.layout.fragment_vaccinelist) {
 
         //VaccineViewModel
         vaccineViewModel = ViewModelProvider(this)[VaccineViewModel::class.java]
-        vaccineViewModel.readAllData.observe(viewLifecycleOwner) { vaccine ->
-            adapter.setData(vaccine)
+        vaccineViewModel.readAllData.observe(viewLifecycleOwner) { vaccines ->
+            adapter.setData(vaccines)
             checkEmptyList(binding, adapter)
         }
 
